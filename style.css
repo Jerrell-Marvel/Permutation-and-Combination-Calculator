@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-pink: #ee205a;
+}
+
+html {
+  background-color: black;
+}
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+.container {
+  width: 100%;
+  background-color: black;
+}
+header {
+  width: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+header p {
+  font-size: 1.5rem;
+}
+.border-dark-pink {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent 0%, var(--dark-pink) 45%, var(--dark-pink) 55%, transparent 100%);
+}
+
+.border-white {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent 0%, #fff 45%, #fff 55%, transparent 100%);
+}
+
+.border-top {
+  position: absolute;
+  top: 0;
+}
+
+.border-right {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  right: 0;
+  background: linear-gradient(to bottom, transparent 0%, var(--dark-pink) 10%, var(--dark-pink) 90%, transparent 100%);
+}
+
+.border-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.border-left {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  left: 0;
+  background: linear-gradient(to bottom, transparent 0%, var(--dark-pink) 25%, var(--dark-pink) 75%, transparent 100%);
+}
+
+main {
+  display: flex;
+}
+
+.permutation {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  gap: 1.5em;
+  color: white;
+  position: relative;
+}
+
+.permutation-formula,
+.combination-formula {
+  position: relative;
+  width: 100%;
+}
+
+.combination {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  gap: 1.5em;
+  color: white;
+  position: relative;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+}
+
+.calc-reset-wrapper {
+  width: 100%;
+  padding: 1em;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+input {
+  width: 100px;
+}
+
+input:focus {
+  background-color: -dark-pink;
+}
+.btn {
+  padding: 1em;
+  border: none;
+  background-color: var(--dark-pink);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.answer-wrapper {
+  font-size: 1.25rem;
+  width: 100%;
+  text-align: center;
+  line-height: 2em;
+  height: 150px;
+}
+
+footer {
+  width: auto;
+  height: 75px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+  padding-right: 2em;
+}
+@media (max-width: 576px) {
+  :root {
+    font-size: 62.5%;
+  }
+  main {
+    flex-direction: column;
+  }
+  .permutation,
+  .combination {
+    width: 100%;
+  }
+  .answer-wrapper {
+    height: 75px;
+  }
+  .seperator-border {
+    display: none;
+  }
+
+  .btn {
+    padding: 0.5em;
+  }
+}

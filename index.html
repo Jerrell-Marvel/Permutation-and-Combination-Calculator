@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Permutation and Combination Calculator</title>
+
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;700&family=Comic+Neue:wght@300&family=Gilda+Display&family=Oswald&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Permutation and combination calculator</h1>
+        <p>By : Jerrell Marvel</p>
+        <div class="border-dark-pink border-bottom"></div>
+      </header>
+
+      <main>
+        <!-- Permutation -->
+        <section class="permutation">
+          <h2>Permutation</h2>
+          <div class="permutation-formula">
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+              <semantics>
+                <mrow>
+                  <mi>P</mi>
+                  <mo stretchy="false">(</mo>
+                  <mi>n</mi>
+                  <mo>,</mo>
+                  <mi>r</mi>
+                  <mo stretchy="false">)</mo>
+                  <mo>=</mo>
+                  <mfrac>
+                    <mrow>
+                      <mi>n</mi>
+                      <mo>!</mo>
+                    </mrow>
+                    <mrow>
+                      <mo stretchy="false">(</mo>
+                      <mi>n</mi>
+                      <mo>&#x2212;<!-- − --></mo>
+                      <mi>r</mi>
+                      <mo stretchy="false">)</mo>
+                      <mo>!</mo>
+                    </mrow>
+                  </mfrac>
+                  <mo>=</mo>
+                  <mspace width="thickmathspace" />
+                  <mo>?</mo>
+                </mrow>
+                <annotation encoding="application/x-tex">P(n,r) = \frac{n!}{(n - r)! } = \; ?</annotation>
+              </semantics>
+            </math>
+            <div class="border-white border-bottom"></div>
+          </div>
+
+          <form class="permutation-form form" onsubmit="return false;">
+            <label for="permutation-objects">n <i>(objects)</i> : </label>
+            <input type="number" id="permutation-objects" min="0" required placeholder="n" />
+            <label for="permutation-sample">r <i>(sample)</i> : </label>
+            <input type="number" id="permutation-sample" required onkeydown="return (event.keyCode!=13);" min="0" placeholder="r" />
+
+            <div class="calc-reset-wrapper">
+              <input type="reset" class="btn" />
+              <input type="submit" value="calculate" class="btn permutation-calc-btn" />
+            </div>
+          </form>
+
+          <div class="answer-wrapper">
+            <h3>Answer :</h3>
+            <div class="permutation-answer"></div>
+          </div>
+          <div class="border-dark-pink border-right seperator-border"></div>
+          <div class="border-dark-pink border-bottom"></div>
+        </section>
+
+        <!-- Combination -->
+        <section class="combination">
+          <h2>Combination</h2>
+          <div class="combination-formula">
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+              <semantics>
+                <mrow>
+                  <mi>C</mi>
+                  <mo stretchy="false">(</mo>
+                  <mi>n</mi>
+                  <mo>,</mo>
+                  <mi>r</mi>
+                  <mo stretchy="false">)</mo>
+                  <mo>=</mo>
+                  <mrow>
+                    <mstyle scriptlevel="0">
+                      <mrow class="MJX-TeXAtom-OPEN">
+                        <mo maxsize="2.047em" minsize="2.047em">(</mo>
+                      </mrow>
+                    </mstyle>
+                    <mfrac linethickness="0">
+                      <mi>n</mi>
+                      <mi>r</mi>
+                    </mfrac>
+                    <mstyle scriptlevel="0">
+                      <mrow class="MJX-TeXAtom-CLOSE">
+                        <mo maxsize="2.047em" minsize="2.047em">)</mo>
+                      </mrow>
+                    </mstyle>
+                  </mrow>
+                  <mo>=</mo>
+                  <mfrac>
+                    <mrow>
+                      <mi>n</mi>
+                      <mo>!</mo>
+                    </mrow>
+                    <mrow>
+                      <mo stretchy="false">(</mo>
+                      <mi>r</mi>
+                      <mo>!</mo>
+                      <mo stretchy="false">(</mo>
+                      <mi>n</mi>
+                      <mo>&#x2212;<!-- − --></mo>
+                      <mi>r</mi>
+                      <mo stretchy="false">)</mo>
+                      <mo>!</mo>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                  </mfrac>
+                  <mo>=</mo>
+                  <mspace width="thickmathspace" />
+                  <mo>?</mo>
+                </mrow>
+                <annotation encoding="application/x-tex">C(n,r) = \binom{n}{r} = \frac{n!}{( r! (n - r)! )} = \; ?</annotation>
+              </semantics>
+            </math>
+            <div class="border-white border-bottom"></div>
+          </div>
+
+          <form class="combination-form form" onsubmit="return false;">
+            <label for="combination-objects">n <i>(objects)</i> : </label>
+            <input type="number" id="combination-objects" min="0" required placeholder="n" />
+            <label for="combination-sample">r <i>(sample)</i> : </label>
+            <input type="number" id="combination-sample" required onkeydown="return (event.keyCode!=13);" min="0" placeholder="r" />
+
+            <div class="calc-reset-wrapper">
+              <input type="reset" class="btn" />
+              <input type="submit" value="calculate" class="btn combination-calc-btn" />
+            </div>
+
+            <div class="answer-wrapper">
+              <h3>Answer :</h3>
+              <div class="combination-answer"></div>
+            </div>
+            <div class="border-dark-pink border-bottom"></div>
+          </form>
+        </section>
+      </main>
+
+      <footer>
+        <h4>Made by Jerrell Marvel</h4>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
