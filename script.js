@@ -20,11 +20,10 @@ pForm.addEventListener("keyup", function (event) {
 
   if (event.keyCode === 13 && +pObjects >= +pSample) {
     event.preventDefault();
-
     permutationCalcBtn.click();
   } else if (event.keyCode === 13) {
     const permutationAnswer = document.querySelector(".permutation-answer");
-    permutationAnswer.innerHTML = `<p style="color:red;">Objects must be bigger than sample</p>`;
+    permutationAnswer.innerHTML = `<p style="color:red;">please enter n ≥ r ≥ 0</p>`;
   }
 });
 
