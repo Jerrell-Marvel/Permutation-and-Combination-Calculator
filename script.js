@@ -4,12 +4,12 @@ permutationCalcBtn.addEventListener("click", function () {
   const pSample = document.querySelector("#permutation-sample").value;
   const permutationAnswer = document.querySelector(".permutation-answer");
 
-  if (+pObjects >= +pSample) {
+  if (+pObjects >= +pSample && (pObjects, pSample) >= 0) {
     let pLastAnswer = factorial(pObjects) / factorial(pObjects - pSample);
     pLastAnswer == "Infinity" ? (pLastAnswer = factorial(pObjects)) : pLastAnswer;
     permutationAnswer.innerHTML = showPermutationAns(pObjects, pSample, pLastAnswer);
   } else {
-    permutationAnswer.innerHTML = `<p style="color:red;">Objects must be bigger than sample</p>`;
+    permutationAnswer.innerHTML = `<p style="color:red;">please enter n ≥ r ≥ 0</p>`;
   }
 });
 
@@ -39,14 +39,14 @@ combinationCalcBtn.addEventListener("click", function () {
   const cSample = document.querySelector("#combination-sample").value;
   const combinationAnswer = document.querySelector(".combination-answer");
 
-  if (+cObjects >= +cSample) {
+  if (+cObjects >= +cSample && (cObjects, cSample) >= 0) {
     let lastAnswer = factorial(cObjects) / (factorial(cSample) * factorial(cObjects - cSample));
     cSample == 0 ? (lastAnswer = 1) : cSample;
     cObjects - cSample == 0 ? (lastAnswer = 1) : lastAnswer;
     combinationAnswer.innerHTML = showCombinationAns(cObjects, cSample, lastAnswer);
     console.log(lastAnswer);
   } else {
-    combinationAnswer.innerHTML = `<p style="color:red;">Objects must be bigger than sample</p>`;
+    combinationAnswer.innerHTML = `<p style="color:red;">please enter n ≥ r ≥ 0</p>`;
   }
 });
 
@@ -59,7 +59,7 @@ cForm.addEventListener("keyup", function (event) {
     combinationCalcBtn.click();
   } else if (event.keyCode === 13) {
     const combinationAnswer = document.querySelector(".permutation-answer");
-    combinationAnswer.innerHTML = `<p style="color:red;">Objects must be bigger than sample</p>`;
+    combinationAnswer.innerHTML = `<p style="color:red;">please enter n ≥ r ≥ 0</p>`;
   }
 });
 
