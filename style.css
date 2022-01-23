@@ -135,6 +135,7 @@ input:focus {
   background-color: -dark-pink;
 }
 .btn {
+  display: block;
   padding: 1em;
   border: none;
   background-color: var(--dark-pink);
@@ -144,7 +145,7 @@ input:focus {
 }
 
 .btn:hover {
-  opacity: 0.8;
+  box-shadow: 0 0 0 1px white;
 }
 
 .answer-wrapper {

@@ -1,5 +1,6 @@
 const permutationCalcBtn = document.querySelector(".permutation-calc-btn");
-permutationCalcBtn.addEventListener("click", function () {
+const permutationResetBtn = document.querySelector(".permutation-reset-btn");
+permutationCalcBtn.addEventListener("click", () => {
   const pObjects = document.querySelector("#permutation-objects").value;
   const pSample = document.querySelector("#permutation-sample").value;
   const permutationAnswer = document.querySelector(".permutation-answer");
@@ -13,6 +14,11 @@ permutationCalcBtn.addEventListener("click", function () {
   }
 });
 
+permutationResetBtn.addEventListener("click", () => {
+  document.querySelector(".permutation-answer").innerHTML = "";
+  pForm.querySelector("input").focus();
+});
+
 const pForm = document.querySelector(".permutation-form");
 pForm.addEventListener("keyup", function (event) {
   const pObjects = document.querySelector("#permutation-objects").value;
@@ -24,6 +30,10 @@ pForm.addEventListener("keyup", function (event) {
   } else if (event.keyCode === 13) {
     const permutationAnswer = document.querySelector(".permutation-answer");
     permutationAnswer.innerHTML = `<p style="color:red;">please enter n ≥ r ≥ 0</p>`;
+  } else if (event.keyCode === 67) {
+    permutationResetBtn.click();
+    pForm.querySelector("input").focus();
+    document.querySelector(".permutation-answer").innerHTML = "";
   }
 });
 
@@ -33,7 +43,8 @@ function showPermutationAns(objects, sample, answer) {
 }
 
 const combinationCalcBtn = document.querySelector(".combination-calc-btn");
-combinationCalcBtn.addEventListener("click", function () {
+const combinationResetBtn = document.querySelector(".combination-reset-btn");
+combinationCalcBtn.addEventListener("click", () => {
   const cObjects = document.querySelector("#combination-objects").value;
   const cSample = document.querySelector("#combination-sample").value;
   const combinationAnswer = document.querySelector(".combination-answer");
@@ -49,6 +60,11 @@ combinationCalcBtn.addEventListener("click", function () {
   }
 });
 
+combinationResetBtn.addEventListener("click", () => {
+  document.querySelector(".combination-answer").innerHTML = "";
+  cForm.querySelector("input").focus();
+});
+
 const cForm = document.querySelector(".combination-form");
 cForm.addEventListener("keyup", function (event) {
   const cObjects = document.querySelector("#permutation-objects").value;
@@ -59,6 +75,10 @@ cForm.addEventListener("keyup", function (event) {
   } else if (event.keyCode === 13) {
     const combinationAnswer = document.querySelector(".permutation-answer");
     combinationAnswer.innerHTML = `<p style="color:red;">please enter n ≥ r ≥ 0</p>`;
+  } else if (event.keyCode === 67) {
+    combinationResetBtn.click();
+    cForm.querySelector("input").focus();
+    document.querySelector(".combination-answer").innerHTML = "";
   }
 });
 
