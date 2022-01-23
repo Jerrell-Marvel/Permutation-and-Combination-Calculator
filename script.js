@@ -70,7 +70,7 @@ function showCombinationAns(objects, sample, answer) {
 // factorial function using recursion
 function factorial(num) {
   if (num != 0) {
-    if (num === 1) {
+    if (num == 1) {
       return 1;
     }
     return num * factorial(num - 1);
