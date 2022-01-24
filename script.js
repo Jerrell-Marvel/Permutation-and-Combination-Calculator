@@ -1,11 +1,10 @@
-const permutationCalcBtn = document.querySelector(".permutation-calc-btn");
-const permutationResetBtn = document.querySelector(".permutation-reset-btn");
-permutationCalcBtn.addEventListener("click", () => {
-  const pObjects = document.querySelector("#permutation-objects").value;
-  const pSample = document.querySelector("#permutation-sample").value;
+const pForm = document.querySelector(".permutation-form");
+pForm.addEventListener("submit", () => {
+  const pObjects = parseInt(document.querySelector("#permutation-objects").value);
+  const pSample = parseInt(document.querySelector("#permutation-sample").value);
   const permutationAnswer = document.querySelector(".permutation-answer");
 
-  if (+pObjects >= +pSample && (pObjects, pSample) >= 0) {
+  if (pObjects >= pSample && (pObjects, pSample) >= 0) {
     let pLastAnswer = factorial(pObjects) / factorial(pObjects - pSample);
     pLastAnswer == "Infinity" ? (pLastAnswer = factorial(pObjects)) : pLastAnswer;
     permutationAnswer.innerHTML = showPermutationAns(pObjects, pSample, pLastAnswer);
@@ -14,26 +13,17 @@ permutationCalcBtn.addEventListener("click", () => {
   }
 });
 
+const permutationResetBtn = document.querySelector(".permutation-reset-btn");
 permutationResetBtn.addEventListener("click", () => {
   document.querySelector(".permutation-answer").innerHTML = "";
   pForm.querySelector("input").focus();
 });
 
-const pForm = document.querySelector(".permutation-form");
-pForm.addEventListener("keyup", function (event) {
-  const pObjects = document.querySelector("#permutation-objects").value;
-  const pSample = document.querySelector("#permutation-sample").value;
-
-  if (event.keyCode === 13 && +pObjects >= +pSample) {
+pForm.addEventListener("keyup", (event) => {
+  if (event.keyCode === 67) {
     event.preventDefault();
-    permutationCalcBtn.click();
-  } else if (event.keyCode === 13) {
-    const permutationAnswer = document.querySelector(".permutation-answer");
-    permutationAnswer.innerHTML = `<p style="color:red;">please enter n ≥ r ≥ 0</p>`;
-  } else if (event.keyCode === 67) {
     permutationResetBtn.click();
     pForm.querySelector("input").focus();
-    document.querySelector(".permutation-answer").innerHTML = "";
   }
 });
 
@@ -42,9 +32,8 @@ function showPermutationAns(objects, sample, answer) {
   = ${answer}`;
 }
 
-const combinationCalcBtn = document.querySelector(".combination-calc-btn");
-const combinationResetBtn = document.querySelector(".combination-reset-btn");
-combinationCalcBtn.addEventListener("click", () => {
+const cForm = document.querySelector(".combination-form");
+cForm.addEventListener("submit", () => {
   const cObjects = document.querySelector("#combination-objects").value;
   const cSample = document.querySelector("#combination-sample").value;
   const combinationAnswer = document.querySelector(".combination-answer");
@@ -60,25 +49,17 @@ combinationCalcBtn.addEventListener("click", () => {
   }
 });
 
+const combinationResetBtn = document.querySelector(".combination-reset-btn");
 combinationResetBtn.addEventListener("click", () => {
   document.querySelector(".combination-answer").innerHTML = "";
   cForm.querySelector("input").focus();
 });
 
-const cForm = document.querySelector(".combination-form");
-cForm.addEventListener("keyup", function (event) {
-  const cObjects = document.querySelector("#permutation-objects").value;
-  const cSample = document.querySelector("#permutation-sample").value;
-
-  if (event.keyCode === 13 && +cObjects >= +cSample) {
-    combinationCalcBtn.click();
-  } else if (event.keyCode === 13) {
-    const combinationAnswer = document.querySelector(".permutation-answer");
-    combinationAnswer.innerHTML = `<p style="color:red;">please enter n ≥ r ≥ 0</p>`;
-  } else if (event.keyCode === 67) {
+cForm.addEventListener("keyup", (event) => {
+  if (event.keyCode === 67) {
+    event.preventDefault();
     combinationResetBtn.click();
     cForm.querySelector("input").focus();
-    document.querySelector(".combination-answer").innerHTML = "";
   }
 });
 
