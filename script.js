@@ -43,7 +43,6 @@ cForm.addEventListener("submit", () => {
     cSample == 0 ? (lastAnswer = 1) : cSample;
     cObjects - cSample == 0 ? (lastAnswer = 1) : lastAnswer;
     combinationAnswer.innerHTML = showCombinationAns(cObjects, cSample, lastAnswer);
-    console.log(lastAnswer);
   } else {
     combinationAnswer.innerHTML = `<p style="color:red;">please enter n ≥ r ≥ 0</p>`;
   }
