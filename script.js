@@ -5,7 +5,7 @@ pForm.addEventListener("submit", () => {
   const permutationAnswer = document.querySelector(".permutation-answer");
 
   if (pObjects >= pSample && (pObjects, pSample) >= 0) {
-    let pLastAnswer = factorial(pObjects) / factorial(pObjects - pSample);
+    let pLastAnswer = Math.round(factorial(pObjects) / factorial(pObjects - pSample));
     pLastAnswer == "Infinity" ? (pLastAnswer = factorial(pObjects)) : pLastAnswer;
     permutationAnswer.innerHTML = showPermutationAns(pObjects, pSample, pLastAnswer);
   } else {
@@ -39,10 +39,10 @@ cForm.addEventListener("submit", () => {
   const combinationAnswer = document.querySelector(".combination-answer");
 
   if (+cObjects >= +cSample && (cObjects, cSample) >= 0) {
-    let lastAnswer = factorial(cObjects) / (factorial(cSample) * factorial(cObjects - cSample));
-    cSample == 0 ? (lastAnswer = 1) : cSample;
-    cObjects - cSample == 0 ? (lastAnswer = 1) : lastAnswer;
-    combinationAnswer.innerHTML = showCombinationAns(cObjects, cSample, lastAnswer);
+    let cLastAnswer = Math.round(factorial(cObjects) / (factorial(cSample) * factorial(cObjects - cSample)));
+    cSample == 0 ? (cLastAnswer = 1) : cSample;
+    cObjects - cSample == 0 ? (cLastAnswer = 1) : cLastAnswer;
+    combinationAnswer.innerHTML = showCombinationAns(cObjects, cSample, cLastAnswer);
   } else {
     combinationAnswer.innerHTML = `<p style="color:red;">please enter n ≥ r ≥ 0</p>`;
   }
