@@ -8,6 +8,9 @@ pForm.addEventListener("submit", () => {
     let pLastAnswer = Math.round(factorial(pObjects) / factorial(pObjects - pSample));
     pLastAnswer == "Infinity" ? (pLastAnswer = factorial(pObjects)) : pLastAnswer;
     permutationAnswer.innerHTML = showPermutationAns(pObjects, pSample, pLastAnswer);
+    if (isNaN(pLastAnswer) || pLastAnswer == "Infinity") {
+      permutationAnswer.innerHTML = `<p style="color:red;">Please enter smaller numbers</p>`;
+    }
   } else {
     permutationAnswer.innerHTML = `<p style="color:red;">please enter n ≥ r ≥ 0</p>`;
   }
@@ -43,6 +46,9 @@ cForm.addEventListener("submit", () => {
     cSample == 0 ? (cLastAnswer = 1) : cSample;
     cObjects - cSample == 0 ? (cLastAnswer = 1) : cLastAnswer;
     combinationAnswer.innerHTML = showCombinationAns(cObjects, cSample, cLastAnswer);
+    if (isNaN(cLastAnswer)) {
+      combinationAnswer.innerHTML = `<p style="color:red;">Please enter smaller numbers</p>`;
+    }
   } else {
     combinationAnswer.innerHTML = `<p style="color:red;">please enter n ≥ r ≥ 0</p>`;
   }
